@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.stark.app.mappers.UserMapper" >
+
+	<resultMap type="com.stark.app.model.User" id="baseResultMap">
+		<id column="ID" property="id" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="NAME" property="name" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="PWD" property="pwd" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="DESCRIPTION" property="description" javaType="java.lang.String" jdbcType="VARCHAR" />
+		<result column="STATE" property="state" javaType="java.lang.String" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<sql id="user_attrs">ID,NAME,PASSWORD,DESCRIPTION,STATE</sql>
+	
+	<sql id="user_vals">#{id},#{name},#{password},#{description},#{state}</sql>
+
+	<insert id="save" parameterType="com.stark.app.model.User">
+		INSERT INTO USER (<include refid="user_attrs"></include>) 
+		VALUES (<include refid="user_vals"></include>)
+	</insert>
+	
+	<delete id="delete" parameterType="java.lang.String">
+		DELETE FROM USER WHERE ID = #{id}
+	</delete>
+	
+	<update id="modify" parameterType="com.stark.app.model.User">
+		UPDATE USER
+		<set>
+			<if test="name != null and name != ''">
+				NAME = #{name},
+			</if>
+			<if test="password != null and password != ''">
+				PASSWORD = #{password},
+			</if>
+			<if test="description != null and description != ''">
+				DESCRIPTION = #{description},
+			</if>
+			<if test="state != null and state != ''">
+				STATE = #{state}
+			</if>
+		</set>
+		WHERE ID = #{id}
+	</update>
+	
+	<select id="findById" parameterType="java.lang.String" resultMap="baseResultMap">
+		SELECT <include refid="user_attrs"></include> 
+		FROM USER
+		WHERE ID = #{id}
+	</select>
+
+	<select id="findAll" parameterType="java.util.Map" resultMap="baseResultMap">
+		SELECT <include refid="user_attrs"></include>
+		FROM USER
+	</select>
+
+</mapper>
