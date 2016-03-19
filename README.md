@@ -1,5 +1,5 @@
 # stark-spring-springmvc-mybatis-demo
-基于Maven的SSM框架集成及测试.(Spring+SpringMVC+MyBatis).包含使用druid等,附有相关博客文章. 
+基于Maven的SSM框架集成及测试.(Spring+SpringMVC+MyBatis).包含使用druid等使用,附有相关博客文章. 
 
 ## 工具和框架 (Tools and Frameworks)
 - Java: JDK6
