@@ -37,6 +37,15 @@
 	<servlet-name>spring</servlet-name>
 	<url-pattern>*.do</url-pattern>
   </servlet-mapping>
+  <!-- druid monitor -->
+  <servlet>  
+	<servlet-name>DruidStatView</servlet-name>  
+	<servlet-class>com.alibaba.druid.support.http.StatViewServlet</servlet-class>  
+  </servlet>  
+  <servlet-mapping>  
+	<servlet-name>DruidStatView</servlet-name>  
+	<url-pattern>/druid/*</url-pattern>  
+  </servlet-mapping>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
