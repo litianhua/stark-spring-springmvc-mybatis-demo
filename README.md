@@ -13,6 +13,9 @@
 ## 基于Maven的项目创建 和 SSM框架集成及测试.
 - 文章：[基于Maven的SSM框架集成及测试.](http://www.litianhua.net/blog/ssm-maven.html)
 
+## Druid Monitor的配置和使用.
+- 文章：[Druid Monitor的配置和使用.](http://www.litianhua.net/blog/druid-monitor.html)
+
 ## 作者 (About)
 - Stark Li
 - Blog：[http://www.litianhua.net/](http://www.litianhua.net/)
